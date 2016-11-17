@@ -1,9 +1,0 @@
-a:4:{i:0;s:64:"Setup version for module 'Infobeans_Salesorder' is not specified";i:1;s:1359:"#0 /var/www/html/magento2/vendor/magento/framework/Module/DbVersionInfo.php(56): Magento\Framework\Module\DbVersionInfo->isModuleVersionEqual('Infobeans_Sales...', '1.0.0')
-#1 /var/www/html/magento2/vendor/magento/framework/Module/DbVersionInfo.php(79): Magento\Framework\Module\DbVersionInfo->isSchemaUpToDate('Infobeans_Sales...')
-#2 /var/www/html/magento2/vendor/magento/framework/Module/Plugin/DbStatusValidator.php(55): Magento\Framework\Module\DbVersionInfo->getDbVersionErrors()
-#3 /var/www/html/magento2/vendor/magento/framework/Interception/Interceptor.php(142): Magento\Framework\Module\Plugin\DbStatusValidator->aroundDispatch(Object(Magento\Framework\App\FrontController\Interceptor), Object(Closure), Object(Magento\Framework\App\Request\Http))
-#4 /var/www/html/magento2/var/generation/Magento/Framework/App/FrontController/Interceptor.php(26): Magento\Framework\App\FrontController\Interceptor->___callPlugins('dispatch', Array, Array)
-#5 /var/www/html/magento2/vendor/magento/framework/App/Http.php(135): Magento\Framework\App\FrontController\Interceptor->dispatch(Object(Magento\Framework\App\Request\Http))
-#6 /var/www/html/magento2/vendor/magento/framework/App/Bootstrap.php(258): Magento\Framework\App\Http->launch()
-#7 /var/www/html/magento2/index.php(41): Magento\Framework\App\Bootstrap->run(Object(Magento\Framework\App\Http))
-#8 {main}";s:3:"url";s:6:"/admin";s:11:"script_name";s:10:"/index.php";}
