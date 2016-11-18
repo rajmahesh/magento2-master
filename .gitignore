@@ -1,3 +1,5 @@
 /var/
 /pub/static/
+/pub/media/catalog/product/cache
 /index.php
+/app/etc/env.php
