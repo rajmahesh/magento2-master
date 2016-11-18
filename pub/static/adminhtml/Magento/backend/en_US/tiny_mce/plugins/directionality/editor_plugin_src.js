@@ -1,1 +1,0 @@
-/var/www/html/magento2/lib/web/tiny_mce/plugins/directionality/editor_plugin_src.js
