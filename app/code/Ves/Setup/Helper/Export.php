@@ -116,14 +116,30 @@ class Export extends \Magento\Framework\App\Helper\AbstractHelper
 				if(isset($moduleTables[$v]) && is_array($moduleTables[$v])){
 					foreach ($moduleTables[$v] as $key => $tableName) {
 						$connection = $this->_resource->getConnection();
-						$select = 'SELECT * FROM ' . $this->_resource->getTableName($tableName);
-						$rows = $connection->fetchAll($select);
-						$configs[$v]['tables'][$tableName] = $rows;
+						if($this->checkTableExists($tableName, $connection)){
+							$select = 'SELECT * FROM ' . $this->_resource->getTableName($tableName);
+							$rows = $connection->fetchAll($select);
+							$configs[$v]['tables'][$tableName] = $rows;
+						}
 					}
 				}
 			}
 		}
 		return $configs;
+	}
+
+	public function checkTableExists($tableName, $connection = null) {
+		if(!$connection) {
+			$connection = $this->_resource->getConnection();
+		}
+
+		$select = "SHOW TABLES LIKE '" . $this->_resource->getTableName($tableName)."'";
+		$rows = $connection->fetchAll($select);
+		if(count($rows) > 0 ){
+			return true;
+		}
+
+		return false;
 	}
 
 	public function exportCmsPages($data){
@@ -228,7 +244,7 @@ class Export extends \Magento\Framework\App\Helper\AbstractHelper
 		$sql_tables = [
 		"Ves_Blog" => ["ves_blog_category", "ves_blog_category_store","ves_blog_post", "ves_blog_post_category", "ves_blog_post_tag", "ves_blog_post_related", "ves_blog_post_store", "ves_blog_comment", "ves_blog_comment_store"],
 		"Ves_Testimonial" => ["ves_testimonial_testimonial","ves_testimonial_testimonial_store"],
-		"Ves_PageBuilder" => ["ves_blockbuilder_block", "ves_blockbuilder_cms","ves_blockbuilder_page"],
+		"Ves_PageBuilder" => ["ves_blockbuilder_block", "ves_blockbuilder_cms","ves_blockbuilder_page","ves_blockbuilder_widget"],
 		"Ves_Brand" => ["ves_brand_group", "ves_brand","ves_brand_store"],
 		"Ves_Megamenu" => ["ves_megamenu_menu", "ves_megamenu_menu_store","ves_megamenu_item"],
 		"Magento_Cms_Page" => ["cms_page", "cms_page_store"],

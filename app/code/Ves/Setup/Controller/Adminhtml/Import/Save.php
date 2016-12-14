@@ -127,6 +127,7 @@ class Save extends \Magento\Backend\App\Action
                         foreach ($tables as $tablename => $rows) {
                             $table_name = $this->_resource->getTableName($tablename);
                             $connection->query("SET FOREIGN_KEY_CHECKS=0;");
+                            /*
                             if(!$overwrite) {
                                 $connection->query("TRUNCATE `".$table_name."`");
                             }
@@ -139,6 +140,7 @@ class Save extends \Magento\Backend\App\Action
                                     $connection->query(" DELETE FROM ".$table_name." WHERE block_id = ".$row['block_id']);
                                 }
                             }
+                            */
                             foreach ($rows as $row) {
                                 $where = '';
                                 $query_data = $this->_vesImport->buildQueryImport($row, $table_name, $overwrite, $data['store_id']); 
