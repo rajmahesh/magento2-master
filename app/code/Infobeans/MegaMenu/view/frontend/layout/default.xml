@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="catalog.topnav">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Infobeans_MegaMenu::html/topmegamenu.phtml</argument>
+            </action>
+        </referenceBlock>
+<!--        <referenceContainer name="top.container">
+            <block class="Infobeans\MegaMenu\Block\Html\Topmega" name="catalog.topnav" template="Infobeans_MegaMenu::html/topmegamenu.phtml">
+            </block>
+            <referenceBlock name="catalog.topnav" class="Infobeans\MegaMenu\Block\Html\Topmega" template="Infobeans_MegaMenu::html/topmegamenu.phtml"/>
+        </referenceContainer> -->
+    </body>
+</page>
