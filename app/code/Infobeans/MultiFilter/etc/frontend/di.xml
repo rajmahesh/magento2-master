@@ -1,0 +1,45 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd" >
+    <preference for="Magento\LayeredNavigation\Block\Navigation\State" type="Infobeans\MultiFilter\Block\Navigation\State" />
+    <preference for="Magento\LayeredNavigation\Block\Navigation" type="Infobeans\MultiFilter\Block\Navigation" />
+    <preference for="Magento\LayeredNavigation\Block\Navigation\Category" type="Infobeans\MultiFilter\Block\Navigation\Category" />
+    <virtualType name="Infobeans\MultiFilter\Block\Navigation\Category" type="Infobeans\MultiFilter\Block\Navigation">
+        <arguments>
+            <argument name="filterList" xsi:type="object">categoryFilterList</argument>
+        </arguments>
+    </virtualType>
+    <preference for="Magento\LayeredNavigation\Block\Navigation\FilterRenderer" type="Infobeans\MultiFilter\Block\Navigation\FilterRenderer" />
+    <preference for="Magento\Catalog\Block\Product\ProductList\Toolbar" type="Infobeans\MultiFilter\Block\Product\Customtoolbar" />
+    <type name="Magento\Catalog\Controller\Category\View">
+        <plugin name="product-cont-block-module" type="Infobeans\MultiFilter\Controller\Category\View" sortOrder="10"/>
+    </type>
+    <virtualType name="Infobeans\MultiFilter\Model\Session\Storage" type="Magento\Framework\Session\Storage">
+        <arguments>
+            <argument name="namespace" xsi:type="string">multifilter</argument>
+        </arguments>
+    </virtualType>
+     <virtualType name="Infobeans\MultiFilter\Model\Session" type="Magento\Framework\Session\Generic">
+        <arguments>
+            <argument name="storage" xsi:type="object">Infobeans\MultiFilter\Model\Session\Storage</argument>
+        </arguments>
+    </virtualType>
+    <type name="Infobeans\MultiFilter\Controller\Category\Ajax">
+        <arguments>
+            <argument name="multifilterSession" xsi:type="object">Infobeans\MultiFilter\Model\Session</argument>
+        </arguments>
+    </type>
+    <type name="Infobeans\MultiFilter\Block\Product\AjaxProduct">
+        <arguments>
+            <argument name="multifilterSession" xsi:type="object">Infobeans\MultiFilter\Model\Session</argument>
+        </arguments>
+    </type>
+    <type name="Infobeans\MultiFilter\Block\Product\Customtoolbar">
+        <arguments>
+            <argument name="multifilterSession" xsi:type="object">Infobeans\MultiFilter\Model\Session</argument>
+        </arguments>
+    </type>
+    <type name="Infobeans\MultiFilter\Controller\Category\View">
+        <arguments>
+            <argument name="multifilterSession" xsi:type="object">Infobeans\MultiFilter\Model\Session</argument>
+        </arguments>
+    </type>
+</config>

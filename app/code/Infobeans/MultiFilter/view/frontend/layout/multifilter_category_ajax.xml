@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Infobeans_MultiFilter/css/customstyle.css"/>
+    </head>
+    <body>
+        <block class="Infobeans\MultiFilter\Block\Product\AjaxProduct" name="category.products.list" as="product_list" template="Infobeans_MultiFilter::product/list.phtml">
+            <container name="category.product.list.additional" as="additional" />
+            <block class="Magento\Framework\View\Element\RendererList" name="category.product.type.details.renderers" as="details.renderers">
+                <block class="Magento\Framework\View\Element\Template" as="default"/>
+            </block>
+            <block class="Infobeans\MultiFilter\Block\Product\Customtoolbar" name="product_list_toolbar" template="Infobeans_MultiFilter::product/list/toolbar.phtml">
+                <block class="Magento\Theme\Block\Html\Pager" name="product_list_toolbar_pager" template="Infobeans_MultiFilter::pagger.phtml"/>
+                <!-- The following code shows how to set your own pager increments -->
+                <!--
+                    <action method="setDefaultListPerPage">
+                    <argument name="limit" xsi:type="string">4</argument>
+                </action>
+                <action method="setDefaultGridPerPage">
+                    <argument name="limit" xsi:type="string">3</argument>
+                </action>
+                <action method="addPagerLimit">
+                    <argument name="mode" xsi:type="string">list</argument>
+                    <argument name="limit" xsi:type="string">2</argument>
+                </action>
+                <action method="addPagerLimit">
+                    <argument name="mode" xsi:type="string">list</argument>
+                    <argument name="limit" xsi:type="string">4</argument>
+                </action>
+                <action method="addPagerLimit">
+                    <argument name="mode" xsi:type="string">list</argument>
+                    <argument name="limit" xsi:type="string">6</argument>
+                </action>
+                <action method="addPagerLimit">
+                    <argument name="mode" xsi:type="string">list</argument>
+                    <argument name="limit" xsi:type="string">8</argument>
+                </action>
+                <action method="addPagerLimit" translate="label">
+                    <argument name="mode" xsi:type="string">list</argument>
+                    <argument name="limit" xsi:type="string">all</argument>
+                    <argument name="label" xsi:type="string">All</argument>
+                </action>
+                <action method="addPagerLimit">
+                    <argument name="mode" xsi:type="string">grid</argument>
+                    <argument name="limit" xsi:type="string">3</argument>
+                </action>
+                <action method="addPagerLimit">
+                    <argument name="mode" xsi:type="string">grid</argument>
+                    <argument name="limit" xsi:type="string">6</argument>
+                </action>
+                <action method="addPagerLimit">
+                    <argument name="mode" xsi:type="string">grid</argument>
+                    <argument name="limit" xsi:type="string">9</argument>
+                </action>
+                <action method="addPagerLimit" translate="label">
+                    <argument name="mode" xsi:type="string">grid</argument>
+                    <argument name="limit" xsi:type="string">all</argument>
+                    <argument name="label" xsi:type="string">All</argument>
+                </action>
+                -->
+            </block>
+            <action method="setToolbarBlockName">
+                <argument name="name" xsi:type="string">product_list_toolbar</argument>
+            </action>
+        </block>
+        <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
+            <arguments>
+                <argument name="triggers" xsi:type="array">
+                    <item name="compareProductLink" xsi:type="string">.action.tocompare</item>
+                </argument>
+            </arguments>
+        </block>
+        <referenceBlock name="category.product.type.details.renderers">
+            <block class="Magento\Swatches\Block\Product\Renderer\Listing\Configurable" as="configurable" template="Magento_Swatches::product/listing/renderer.phtml" />
+        </referenceBlock>
+    </body>
+</page>

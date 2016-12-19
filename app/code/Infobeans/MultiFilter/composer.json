@@ -1,0 +1,27 @@
+{
+    "name": "infobeans/module-multifilter",
+    "description": "multiple layered navigation.",
+    "type": "magento2-module",
+    "version": "2.0.2",
+     "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "repositories": [
+    {
+        "type": "composer",
+        "url": ""
+    }
+    ],
+     "require": {
+        "php": "~5.5.0|~5.6.0"
+    },
+    "autoload": {
+        "files": [ "registration.php" ],
+        "psr-4": {
+            "Infobeans\\MultiFilter\\": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false
+}
