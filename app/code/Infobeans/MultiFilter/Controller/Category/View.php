@@ -117,9 +117,9 @@ class View extends \Magento\Framework\App\Action\Action
             foreach ($attributes as $data) {
                 $vals[$data['name']][] = $data['value'];
                 $frontendType = $this->checkAttribute($data['name']);
-                if ($frontendType == 'multiselect') {
-                    $collection->addAttributeToFilter($data['name'], array('finset' => $data['value']));
-                }
+//                if ($frontendType == 'multiselect') {
+//                    $collection->addAttributeToFilter($data['name'], array('finset' => $data['value']));
+//                }
             }
             foreach ($vals as $k => $v) {
                 if ($k == 'price') {
@@ -134,13 +134,14 @@ class View extends \Magento\Framework\App\Action\Action
                     }
                     $collection->addAttributeToFilter($k, array($filters));
                 } else {
-                    $frontendType = $this->checkAttribute($k);
-                    if ($frontendType != 'multiselect') {
+//                    $frontendType = $this->checkAttribute($k);
+//                    if ($frontendType != 'multiselect') {
                         $collection->addAttributeToFilter($k, array('in' => $v));
-                    }
+                   // }
                 }
             }
         }
+
         $parentsId = '';
         $productId = array();
         foreach ($collection as $data) {
