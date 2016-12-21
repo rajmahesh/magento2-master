@@ -93,6 +93,7 @@ return array(
     'Magento\\SalesSampleData\\' => array($vendorDir . '/magento/module-sales-sample-data'),
     'Magento\\SalesRule\\' => array($vendorDir . '/magento/module-sales-rule'),
     'Magento\\SalesRuleSampleData\\' => array($vendorDir . '/magento/module-sales-rule-sample-data'),
+    'Magento\\SalesInventory\\' => array($vendorDir . '/magento/module-sales-inventory'),
     'Magento\\Rule\\' => array($vendorDir . '/magento/module-rule'),
     'Magento\\Rss\\' => array($vendorDir . '/magento/module-rss'),
     'Magento\\Review\\' => array($vendorDir . '/magento/module-review'),
