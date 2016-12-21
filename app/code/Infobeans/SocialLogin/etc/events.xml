@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_predispatch_sociallogin_popup_login">
+        <observer name="captcha" instance="Infobeans\SocialLogin\Observer\CheckUserLoginObserver"/>
+    </event>
+    <event name="controller_action_predispatch_sociallogin_popup_create">
+        <observer name="captcha" instance="Infobeans\SocialLogin\Observer\CheckUserCreateObserver"/>
+    </event>
+    <event name="controller_action_predispatch_sociallogin_popup_forgot">
+        <observer name="captcha" instance="Infobeans\SocialLogin\Observer\CheckForgotpasswordObserver"/>
+    </event>
+</config>
